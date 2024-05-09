@@ -1,10 +1,10 @@
-import { ModeToggle } from "@/components/header/mode-toggle";
+import { ToggleThemeButton } from "@/components/header/ToggleThemeButton";
 
 const Landing = async () => {
   return (
-    <div>
-      <h1>Landing Page</h1>
-      <ModeToggle />
+    <div className={"bg-blue-400"}>
+      <h1>프론트는 어려워</h1>
+      <ToggleThemeButton />
       {/*<Tests />*/}
     </div>
   );
