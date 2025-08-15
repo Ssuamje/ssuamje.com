@@ -2,13 +2,15 @@
 
 import Header from "@/components/header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Linkedin, Instagram } from "lucide-react";
+import { Github, Linkedin, Instagram, ExternalLink, Newspaper } from "lucide-react";
 import ProjectCarousel from "@/components/main/ProjectCarousel";
-import { TECH_STACK, SOCIAL_LINKS } from "@/constants/site";
+import { TECH_STACK, AWARDS, SOCIAL_LINKS } from "@/constants/site";
 import { useTranslations } from "next-intl";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Home() {
   const t = useTranslations('home');
+  const { locale } = useLanguage();
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-background">
@@ -84,6 +86,55 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* 대외활동 */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-50">{t('awards')}</h2>
+            <div className="space-y-3">
+              {AWARDS.map((award, index) => (
+                <div key={index} className="flex items-start space-x-3 p-4 bg-gray-800 rounded-lg">
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between mb-1">
+                      <div>
+                        <h3 className="text-lg font-medium text-white">
+                          {award.category[locale]}
+                        </h3>
+                        <p className="text-xs text-gray-400 mt-1">{award.date}</p>
+                      </div>
+                      <div className="flex space-x-2 ml-4">
+                        {award.newsLink && (
+                          <a
+                            href={award.newsLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center space-x-1 px-2 py-1 bg-blue-600 hover:bg-blue-500 rounded text-xs text-white transition-colors duration-200"
+                          >
+                            <Newspaper className="w-3 h-3" />
+                            <span>{t('news')}</span>
+                          </a>
+                        )}
+                        {award.projectLink && (
+                          <a
+                            href={award.projectLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center space-x-1 px-2 py-1 bg-green-600 hover:bg-green-500 rounded text-xs text-white transition-colors duration-200"
+                          >
+                            <ExternalLink className="w-3 h-3" />
+                            <span>{t('project')}</span>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                    <p className="text-gray-300 text-sm">
+                      {award.description[locale]}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

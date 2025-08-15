@@ -204,6 +204,9 @@ export default function ProjectCarousel() {
                       <div className="text-white text-xl font-bold mb-2">
                         {localizedProject.title}
                       </div>
+                      <div className="text-white/60 text-xs mb-2">
+                        {project.startDate} {project.endDate ? `~ ${project.endDate}` : `~ ${t('ongoing')}`}
+                      </div>
                       <div className="text-white/80 text-sm mb-3">
                         {localizedProject.shortDescription}
                       </div>

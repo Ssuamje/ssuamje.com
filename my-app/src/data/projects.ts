@@ -78,9 +78,9 @@ export const projects: Project[] = [
     localImage: "/images/projects/cabi_thumbnail.png",
     imageUrl: "https://camo.githubusercontent.com/f91e4e9d5de76842540f42f2490c2255fa475e0356d45777fd027cdd0e2504a9/68747470733a2f2f6769746875622d70726f64756374696f6e2d757365722d61737365742d3632313064662e73332e616d617a6f6e6177732e636f6d2f31333237383935352f3237383535343136312d38336266656438332d653134382d343465352d383338392d6234393539383732356365342e706e67",
     color: "from-blue-500 to-purple-600",
-    startDate: "2024-01-15",
-    endDate: "2024-06-30",
-    priority: 5
+    startDate: "2022-12",
+    endDate: "2024-01",
+    priority: 1
   },
   {
     id: "shared-diary",
@@ -124,9 +124,9 @@ export const projects: Project[] = [
     image: "/images/shared-diary-preview.png",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/2a/2a/512a2af6-d2a7-3eb7-451c-eb19bc26695b/AppIcon-0-0-1x_U007ephone-0-0-sRGB-85-220.png/434x0w.webp",
     color: "from-green-500 to-teal-600",
-    startDate: "2024-07-01",
-    endDate: "2024-12-15",
-    priority: 4
+    startDate: "2023-04-01",
+    endDate: "2024-02-04",
+    priority: 2
   },
   {
     id: "turning",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
     image: "/images/turning-preview.png",
     imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/86/a1/df/86a1df8b-ac34-d3c0-faf1-2757b5e0275a/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/434x0w.webp",
     color: "from-orange-500 to-red-600",
-    startDate: "2024-10-01",
+    startDate: "2024-01",
     priority: 3
   }
 ];

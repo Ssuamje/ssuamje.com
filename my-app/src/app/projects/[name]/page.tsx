@@ -49,6 +49,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         {/* 프로젝트 헤더 */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-4">{localizedProject.title}</h1>
+          <div className="mb-4">
+            <span className="text-sm text-gray-400 bg-gray-800 px-3 py-1 rounded-full">
+              {project.startDate} {project.endDate ? `~ ${project.endDate}` : `~ ${t('ongoing')}`}
+            </span>
+          </div>
           <p className="text-xl text-gray-300 leading-relaxed">{localizedProject.fullDescription}</p>
         </div>
 

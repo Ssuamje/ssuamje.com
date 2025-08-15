@@ -1,7 +1,8 @@
 {
   "project": {
     "viewDetails": "자세히 보기",
-    "clickForDetails": "클릭하여 프로젝트 상세 정보 확인"
+    "clickForDetails": "클릭하여 프로젝트 상세 정보 확인",
+    "ongoing": "진행중"
   },
   "language": {
     "korean": "한국어",
@@ -17,7 +18,10 @@
     "techStack": "Tech Stack",
     "languages": "주 사용 언어",
     "platforms": "플랫폼",
-    "infra": "인프라"
+    "infra": "인프라",
+    "awards": "대외활동",
+    "news": "뉴스",
+    "project": "프로젝트"
   },
   "projectDetail": {
     "backToHome": "홈으로 돌아가기",
@@ -29,6 +33,7 @@
     "server": "서버",
     "client": "클라이언트", 
     "infra": "인프라",
-    "keyFeatures": "주요 기능"
+    "keyFeatures": "주요 기능",
+    "ongoing": "진행중"
   }
 }
