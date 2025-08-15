@@ -19,6 +19,21 @@ const config = {
     },
     extend: {
       colors: {
+        // Custom color palette
+        white: "#FAFAFA",
+        black: "#1F2023",
+        "real-black": "#000000",
+        gray: {
+          50: "#E4E4E7",
+          100: "#BCBDC3",
+          200: "#8A8C97",
+          300: "#6C6E79",
+          400: "#5E6069",
+          500: "#4A4C54",
+          600: "#37393F",
+          700: "#26272B",
+        },
+        // Semantic colors using custom palette
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

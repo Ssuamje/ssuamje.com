@@ -4,64 +4,64 @@
 
 @layer base {
   :root {
-    --background: 240 4% 8%; /* #121315 */
-    --foreground: 0 0% 98%;
+    --background: 240 4% 7%; /* #121315 - 다크 모드 기본값 */
+    --foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --card: 240 4% 10%; /* #1a1b1d */
-    --card-foreground: 0 0% 98%;
+    --card: 240 4% 8%; /* #1F2023 (black) */
+    --card-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --popover: 240 4% 10%; /* #1a1b1d */
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 4% 8%; /* #1F2023 (black) */
+    --popover-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 4% 8%;
+    --primary: 240 4% 8%; /* #1F2023 (black) */
+    --primary-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --secondary: 240 4% 15%; /* #252729 */
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 240 4% 15%; /* #37393F (gray-600) */
+    --secondary-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --muted: 240 4% 15%; /* #252729 */
-    --muted-foreground: 240 4% 65%;
+    --muted: 240 4% 15%; /* #37393F (gray-600) */
+    --muted-foreground: 228 9% 87%; /* #E4E4E7 (gray-50) */
 
-    --accent: 240 4% 15%; /* #252729 */
-    --accent-foreground: 0 0% 98%;
+    --accent: 240 4% 15%; /* #37393F (gray-600) */
+    --accent-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --border: 240 4% 20%; /* #2d2e30 */
-    --input: 240 4% 20%; /* #2d2e30 */
+    --border: 240 4% 20%; /* #4A4C54 (gray-500) */
+    --input: 240 4% 20%; /* #4A4C54 (gray-500) */
     --ring: 240 4% 65%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 240 4% 8%; /* #121315 */
-    --foreground: 0 0% 98%;
+    --background: 240 4% 7%; /* #121315 */
+    --foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --card: 240 4% 10%; /* #1a1b1d */
-    --card-foreground: 0 0% 98%;
+    --card: 240 4% 8%; /* #1F2023 (black) */
+    --card-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --popover: 240 4% 10%; /* #1a1b1d */
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 4% 8%; /* #1F2023 (black) */
+    --popover-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 4% 8%;
+    --primary: 240 4% 8%; /* #1F2023 (black) */
+    --primary-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --secondary: 240 4% 15%; /* #252729 */
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 240 4% 15%; /* #37393F (gray-600) */
+    --secondary-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --muted: 240 4% 15%; /* #252729 */
-    --muted-foreground: 240 4% 65%;
+    --muted: 240 4% 15%; /* #37393F (gray-600) */
+    --muted-foreground: 228 9% 87%; /* #E4E4E7 (gray-50) */
 
-    --accent: 240 4% 15%; /* #252729 */
-    --accent-foreground: 0 0% 98%;
+    --accent: 240 4% 15%; /* #37393F (gray-600) */
+    --accent-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA (white) */
 
-    --border: 240 4% 20%; /* #2d2e30 */
-    --input: 240 4% 20%; /* #2d2e30 */
+    --border: 240 4% 20%; /* #4A4C54 (gray-500) */
+    --input: 240 4% 20%; /* #4A4C54 (gray-500) */
     --ring: 240 4% 65%;
 
     --radius: 0.5rem;
@@ -69,6 +69,9 @@
 }
 
 @layer base {
+  html {
+    @apply dark;
+  }
   * {
     @apply border-border;
   }
