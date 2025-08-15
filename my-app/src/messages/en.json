@@ -15,5 +15,14 @@
     "aboutDescription2": "While currently focused on frontend development, I have a strong interest in backend technologies and am striving to grow as a full-stack developer. I pursue user-centric design and optimized performance, and am building a culture of continuous improvement in development.",
     "projects": "Projects",
     "techStack": "Tech Stack"
+  },
+  "projectDetail": {
+    "backToHome": "Back to Home",
+    "projectInfo": "Project Information",
+    "github": "GitHub",
+    "liveDemo": "App Store",
+    "playStore": "Play Store",
+    "techStack": "Tech Stack",
+    "keyFeatures": "Key Features"
   }
 }
