@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/provider/theme-provider";
+import { LanguageProvider } from "@/components/LanguageProvider";
+import LanguageToggle from "@/components/ui/LanguageToggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +26,12 @@ export default function RootLayout({
         storageKey="theme"
         disableTransitionOnChange={true}
       >
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <LanguageProvider>
+            {children}
+            <LanguageToggle />
+          </LanguageProvider>
+        </body>
       </ThemeProvider>
     </html>
   );

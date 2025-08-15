@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Card } from "@/components/ui/card";
-import { projects } from "@/data/projects";
+import { getSortedProjects, type Project } from "@/data/projects";
 import Link from "next/link";
+import { useLanguage } from "@/components/LanguageProvider";
+import { useTranslations } from "next-intl";
 
 export default function ProjectCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -11,6 +13,22 @@ export default function ProjectCarousel() {
   const animationRef = useRef<number>();
   const scrollPositionRef = useRef(0);
   const isUserScrollingRef = useRef(false);
+  
+  // 다국어 지원
+  const { locale } = useLanguage();
+  const t = useTranslations('project');
+  
+  // 정렬된 프로젝트 가져오기
+  const projects = getSortedProjects();
+  
+  // 현재 언어에 맞는 프로젝트 데이터 반환
+  const getLocalizedProject = (project: Project) => ({
+    ...project,
+    title: project.title[locale],
+    shortDescription: project.shortDescription[locale],
+    fullDescription: project.fullDescription[locale],
+    features: project.features[locale],
+  });
 
   // 스크롤 이벤트 처리
   const handleScroll = useCallback(() => {
@@ -149,47 +167,50 @@ export default function ProjectCarousel() {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {repeatedProjects.map((project, index) => (
-          <Link 
-            key={`${project.id}-${index}`} 
-            href={`/projects/${project.name}`}
-            className="flex-shrink-0 w-80"
-          >
-            <Card className="h-64 bg-gradient-to-br border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group overflow-hidden">
-              <div className="relative h-full">
-                {/* 프로젝트 이미지 */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                  <div className="text-6xl text-white/20 font-bold">
-                    {project.title.charAt(0)}
-                  </div>
-                </div>
-                
-                {/* 오버레이 */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                
-                {/* 프로젝트 정보 */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    {project.shortDescription}
-                  </p>
-                </div>
-                
-                {/* 호버 효과 */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-white text-lg font-semibold mb-2">
-                      자세히 보기
-                    </div>
-                    <div className="text-white/80 text-sm">
-                      클릭하여 프로젝트 상세 정보 확인
+        {repeatedProjects.map((project, index) => {
+          const localizedProject = getLocalizedProject(project);
+          return (
+            <Link 
+              key={`${project.id}-${index}`} 
+              href={`/projects/${project.name}`}
+              className="flex-shrink-0 w-80"
+            >
+              <Card className="h-64 bg-gradient-to-br border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group overflow-hidden">
+                <div className="relative h-full">
+                  {/* 프로젝트 이미지 */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                    <div className="text-6xl text-white/20 font-bold">
+                      {localizedProject.title.charAt(0)}
                     </div>
                   </div>
+                  
+                  {/* 오버레이 */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  
+                  {/* 프로젝트 정보 */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <h3 className="text-xl font-bold mb-2">{localizedProject.title}</h3>
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                      {localizedProject.shortDescription}
+                    </p>
+                  </div>
+                  
+                  {/* 호버 효과 */}
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-white text-lg font-semibold mb-2">
+                        {t('viewDetails')}
+                      </div>
+                      <div className="text-white/80 text-sm">
+                        {t('clickForDetails')}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </Card>
-          </Link>
-        ))}
+              </Card>
+            </Link>
+          );
+        })}
       </div>
       
       {/* 양쪽 끝 페이드 효과 */}

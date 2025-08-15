@@ -1,0 +1,19 @@
+{
+  "project": {
+    "viewDetails": "View Details",
+    "clickForDetails": "Click to view project details"
+  },
+  "language": {
+    "korean": "한국어",
+    "english": "English"
+  },
+  "home": {
+    "title": "Developer Sangje Ahn who communicates constantly",
+    "description": "I enjoy discussing problems and resources together, and tackling important issues collaboratively.",
+    "aboutMe": "About Me",
+    "aboutDescription1": "I develop modern and responsive web applications primarily using React, Next.js, and TypeScript. I have a passion for creating clean code and intuitive user interfaces, and I enjoy learning and applying new technologies.",
+    "aboutDescription2": "While currently focused on frontend development, I have a strong interest in backend technologies and am striving to grow as a full-stack developer. I pursue user-centric design and optimized performance, and am building a culture of continuous improvement in development.",
+    "projects": "Projects",
+    "techStack": "Tech Stack"
+  }
+}
