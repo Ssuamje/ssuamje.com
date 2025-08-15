@@ -1,102 +1,89 @@
 import Header from "@/components/header";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-background">
       <Header />
       
-      {/* shadcn/ui 컴포넌트 예제 섹션 */}
-      <div className="w-full max-w-4xl space-y-8">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold">shadcn/ui 컴포넌트 예제</h1>
-          <p className="text-lg text-muted-foreground">
-            아래 컴포넌트들이 제대로 작동하는지 확인해보세요!
-          </p>
-        </div>
-
-        {/* Card 컴포넌트 예제 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>카드 컴포넌트</CardTitle>
-              <CardDescription>
-                shadcn/ui의 Card 컴포넌트입니다.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                이 카드는 제목, 설명, 내용을 포함할 수 있습니다.
+      {/* 메인 카드 */}
+      <Card className="w-full max-w-4xl mx-auto rounded-2xl border-0 shadow-2xl bg-card/50 backdrop-blur-sm">
+        <CardHeader className="text-center pb-6">
+          <CardTitle className="text-3xl font-bold text-primary mb-2">
+            안녕하세요! 👋
+          </CardTitle>
+          <CardDescription className="text-xl text-muted-foreground">
+            프론트엔드 개발자로서 사용자 경험을 중시하는 웹 애플리케이션을 만드는 것을 좋아합니다
+          </CardDescription>
+        </CardHeader>
+        
+        <CardContent className="space-y-8">
+          {/* 소개 섹션 */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold text-primary">About Me</h2>
+            <div className="space-y-3 text-muted-foreground leading-relaxed">
+              <p>
+                React, Next.js, TypeScript를 주로 사용하여 현대적이고 반응형 웹 애플리케이션을 개발하고 있습니다. 
+                깔끔한 코드와 직관적인 사용자 인터페이스를 만드는 것에 열정을 가지고 있으며, 
+                새로운 기술을 배우고 적용하는 것을 즐깁니다.
               </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>버튼과 배지</CardTitle>
-              <CardDescription>
-                다양한 버튼 스타일과 배지를 확인해보세요.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex flex-wrap gap-2">
-                <Button variant="default">기본 버튼</Button>
-                <Button variant="secondary">보조 버튼</Button>
-                <Button variant="outline">아웃라인 버튼</Button>
-                <Button variant="ghost">고스트 버튼</Button>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="default">기본</Badge>
-                <Badge variant="secondary">보조</Badge>
-                <Badge variant="outline">아웃라인</Badge>
-                <Badge variant="destructive">파괴적</Badge>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Input 컴포넌트 예제 */}
-        <Card>
-          <CardHeader>
-            <CardTitle>입력 필드</CardTitle>
-            <CardDescription>
-              다양한 입력 필드들을 테스트해보세요.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium">
-                  이름
-                </label>
-                <Input id="name" placeholder="이름을 입력하세요" />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">
-                  이메일
-                </label>
-                <Input id="email" type="email" placeholder="이메일을 입력하세요" />
-              </div>
+              <p>
+                현재는 프론트엔드 개발에 집중하고 있지만, 백엔드 기술에도 관심이 많아 
+                풀스택 개발자로 성장하고자 노력하고 있습니다. 
+                사용자 중심의 디자인과 최적화된 성능을 추구하며, 
+                지속적으로 개선하는 개발 문화를 만들어가고 있습니다.
+              </p>
             </div>
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium">
-                메시지
-              </label>
-              <Input id="message" placeholder="메시지를 입력하세요" />
-            </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* 테마 토글 버튼 */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground mb-4">
-            헤더의 테마 토글 버튼으로 다크/라이트 모드를 전환할 수 있습니다.
-          </p>
-        </div>
-      </div>
+          {/* 기술 스택 */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold text-primary">Tech Stack</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {[
+                "React", "Next.js", "TypeScript", 
+                "Tailwind CSS", "Node.js", "Prisma"
+              ].map((tech) => (
+                <div key={tech} className="px-4 py-2 bg-secondary/50 rounded-lg text-center text-sm font-medium text-secondary-foreground">
+                  {tech}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 소셜 미디어 링크 */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold text-primary text-center">Connect With Me</h2>
+            <div className="flex justify-center space-x-6">
+              <a 
+                href="https://github.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 bg-secondary/50 hover:bg-secondary/70 rounded-full transition-colors duration-200 group"
+              >
+                <Github className="w-6 h-6 text-secondary-foreground group-hover:text-primary transition-colors duration-200" />
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 bg-secondary/50 hover:bg-secondary/70 rounded-full transition-colors duration-200 group"
+              >
+                <Linkedin className="w-6 h-6 text-secondary-foreground group-hover:text-primary transition-colors duration-200" />
+              </a>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 bg-secondary/50 hover:bg-secondary/70 rounded-full transition-colors duration-200 group"
+              >
+                <Instagram className="w-6 h-6 text-secondary-foreground group-hover:text-primary transition-colors duration-200" />
+              </a>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </main>
   );
 }
