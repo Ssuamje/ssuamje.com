@@ -10,30 +10,60 @@ export default function ProjectCarousel() {
   const [isHovered, setIsHovered] = useState(false);
   const animationRef = useRef<number>();
   const scrollPositionRef = useRef(0);
+  const isUserScrollingRef = useRef(false);
+
+  // 스크롤 이벤트 처리
+  const handleScroll = useCallback(() => {
+    if (!carouselRef.current) return;
+    
+    isUserScrollingRef.current = true;
+    const scrollLeft = carouselRef.current.scrollLeft;
+    const cardWidth = 320 + 24;
+    const originalLength = projects.length * cardWidth;
+    
+    // 무한 스크롤 처리
+    if (scrollLeft <= 0) {
+      carouselRef.current.scrollLeft = originalLength;
+    } else if (scrollLeft >= originalLength * 2) {
+      carouselRef.current.scrollLeft = originalLength;
+    }
+    
+    // 사용자 스크롤 후 자동 스크롤 재시작을 위한 타이머
+    clearTimeout(window.userScrollTimeout);
+    window.userScrollTimeout = setTimeout(() => {
+      isUserScrollingRef.current = false;
+      if (!isHovered) {
+        startAutoScrollRef.current();
+      }
+    }, 1000);
+  }, []);
 
   // 자동 스크롤 애니메이션
   const startAutoScroll = useCallback(() => {
-    if (!carouselRef.current || isHovered) return;
+    if (!carouselRef.current || isHovered || isUserScrollingRef.current) return;
 
     const animate = () => {
-      if (!carouselRef.current || isHovered) return;
+      if (!carouselRef.current || isHovered || isUserScrollingRef.current) return;
 
-      scrollPositionRef.current += 1; // 스크롤 속도
+      carouselRef.current.scrollLeft += 1; // 스크롤 속도
       
-      // 무한 스크롤을 위해 위치가 원본 프로젝트 길이만큼 넘어가면 리셋
-      const cardWidth = 320 + 24; // 카드 너비 + 간격
+      const cardWidth = 320 + 24;
       const originalLength = projects.length * cardWidth;
       
-      if (scrollPositionRef.current >= originalLength) {
-        scrollPositionRef.current = 0;
+      // 무한 스크롤 경계 처리
+      if (carouselRef.current.scrollLeft >= originalLength * 2) {
+        carouselRef.current.scrollLeft = originalLength;
       }
       
-      carouselRef.current.style.transform = `translateX(-${scrollPositionRef.current}px)`;
       animationRef.current = requestAnimationFrame(animate);
     };
 
     animationRef.current = requestAnimationFrame(animate);
   }, [isHovered]);
+
+  // startAutoScroll을 useEffect 의존성에서 제거하기 위해 useCallback 의존성 수정
+  const startAutoScrollRef = useRef(startAutoScroll);
+  startAutoScrollRef.current = startAutoScroll;
 
   // 자동 스크롤 중지
   const stopAutoScroll = useCallback(() => {
@@ -61,22 +91,44 @@ export default function ProjectCarousel() {
   }, [stopAutoScroll]);
 
   const handleTouchEnd = useCallback(() => {
-    // 터치 종료 후 약간의 지연을 두고 자동 스크롤 재시작
     setTimeout(() => {
       setIsHovered(false);
-      startAutoScroll();
+      if (!isUserScrollingRef.current) {
+        startAutoScrollRef.current();
+      }
     }, 1000);
-  }, [startAutoScroll]);
+  }, []);
+
+  // 초기 스크롤 위치 설정 (중간에서 시작)
+  useEffect(() => {
+    if (carouselRef.current) {
+      const cardWidth = 320 + 24;
+      const originalLength = projects.length * cardWidth;
+      carouselRef.current.scrollLeft = originalLength; // 첫 번째 복사본에서 시작
+    }
+  }, []);
 
   useEffect(() => {
-    if (!isHovered) {
-      startAutoScroll();
+    if (!isHovered && !isUserScrollingRef.current) {
+      startAutoScrollRef.current();
     }
 
     return () => {
       stopAutoScroll();
     };
-  }, [isHovered, startAutoScroll, stopAutoScroll]);
+  }, [isHovered, stopAutoScroll]);
+
+  // 스크롤 이벤트 리스너 등록
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    carousel.addEventListener('scroll', handleScroll);
+
+    return () => {
+      carousel.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
 
   // 프로젝트를 여러 번 복사하여 무한 스크롤 효과 생성
   // 충분한 길이로 복사하여 부드러운 무한 스크롤 구현
@@ -84,15 +136,13 @@ export default function ProjectCarousel() {
   const repeatedProjects = Array.from({ length: 3 }, () => projects).flat();
 
   return (
-    <div className="relative w-full overflow-hidden">
-      {/* 자동 스크롤 컨테이너 */}
+    <div className="relative w-full">
+      {/* 스크롤 가능한 컨테이너 */}
       <div 
         ref={carouselRef}
-        className="flex space-x-6"
+        className="flex space-x-6 overflow-x-auto scrollbar-hide"
         style={{ 
-          width: `${repeatedProjects.length * 320 + (repeatedProjects.length - 1) * 24}px`,
-          transform: 'translateX(0px)',
-          transition: 'none'
+          scrollBehavior: 'auto'
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
