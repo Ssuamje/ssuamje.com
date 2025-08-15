@@ -98,15 +98,54 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {/* 기술 스택 */}
             <div>
               <h3 className="text-lg font-semibold text-white mb-3">{t('techStack')}</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span 
-                    key={tech} 
-                    className="px-3 py-2 bg-gray-700 rounded-lg text-sm font-medium text-white"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="space-y-4">
+                {project.tech.server && project.tech.server.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-400 mb-2">{t('server')}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.server.map((tech) => (
+                        <span 
+                          key={tech} 
+                          className="px-3 py-2 bg-blue-700 rounded-lg text-sm font-medium text-white"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {project.tech.client && project.tech.client.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-400 mb-2">{t('client')}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.client.map((tech) => (
+                        <span 
+                          key={tech} 
+                          className="px-3 py-2 bg-green-700 rounded-lg text-sm font-medium text-white"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {project.tech.infra && project.tech.infra.length > 0 && (
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-400 mb-2">{t('infra')}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.infra.map((tech) => (
+                        <span 
+                          key={tech} 
+                          className="px-3 py-2 bg-purple-700 rounded-lg text-sm font-medium text-white"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

@@ -23,6 +23,9 @@
     "liveDemo": "App Store",
     "playStore": "Play Store",
     "techStack": "Tech Stack",
+    "server": "Server",
+    "client": "Client",
+    "infra": "Infrastructure", 
     "keyFeatures": "Key Features"
   }
 }

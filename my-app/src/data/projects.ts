@@ -13,7 +13,11 @@ export interface Project {
     ko: string;
     en: string;
   };
-  tech: string[];
+  tech: {
+    server?: string[];
+    client?: string[];
+    infra?: string[];
+  };
   features: {
     ko: string[];
     en: string[];
@@ -46,7 +50,10 @@ export const projects: Project[] = [
       ko: "42Seoul 교육생들의 사물함 대여 및 관리를 위한 웹 애플리케이션입니다. 백엔드 리드로 참여하여 Java Spring 기반의 서버 개발, 핵심 기능 구현, 트러블 슈팅 및 기술 문서화를 담당했습니다. RESTful API 설계, 데이터베이스 최적화, 그리고 실시간 사물함 상태 관리 시스템을 구축했습니다.",
       en: "A web application for locker rental and management for 42Seoul students. As the backend lead, I was responsible for Java Spring-based server development, core feature implementation, troubleshooting, and technical documentation. I built RESTful API design, database optimization, and real-time locker status management system."
     },
-    tech: ["Java", "Spring Boot", "Spring Security", "JPA", "MySQL", "React", "TypeScript"],
+    tech: {
+      server: ["Java", "Spring Boot", "JPA", "MariaDB", "Grafana", "Prometheus"],
+      infra: ["AWS - EC2, CodeDeploy", "Github Actions"]
+    },
     features: {
       ko: [
         "사물함 실시간 상태 관리",
@@ -90,7 +97,10 @@ export const projects: Project[] = [
       ko: "공유일기는 사용자들이 일상을 기록하고 서로 소통할 수 있는 iOS 모바일 애플리케이션입니다. Kotlin Spring Boot 기반의 백엔드 전체와 실시간 알림 서버 개발을 담당했으며, MariaDB를 활용한 안정적인 데이터 관리와 Grafana-Prometheus를 통한 모니터링 시스템을 구축했습니다. 현재 App Store에서 서비스 중입니다.",
       en: "Shared Diary is an iOS mobile application where users can record their daily lives and communicate with each other. I was responsible for the entire Kotlin Spring Boot-based backend development and real-time notification server, building stable data management with MariaDB and monitoring systems using Grafana-Prometheus. Currently available on the App Store."
     },
-    tech: ["Kotlin", "Spring Boot", "MariaDB", "Grafana", "Prometheus", "Push Notifications - FCM"],
+    tech: {
+      server: ["Kotlin", "Spring Boot","MariaDB", "FCM"],
+      infra: [ "AWS - S3, CodeDeploy, RDS", "Grafana", "Prometheus"]
+    },
     features: {
       ko: [
         "Kotlin Spring Boot 백엔드 서버",
@@ -133,7 +143,11 @@ export const projects: Project[] = [
       ko: "터닝은 한국 스크린타임 관리 분야 1위 앱으로, iOS와 Android에서 서비스되고 있습니다. 안드로이드 개발을 주력으로 담당했으며, iOS의 Screen Time API와 동일한 기능을 안드로이드에서 자체 구현하는 핵심 로직을 개발했습니다. 또한 백엔드 서버 개발도 함께 담당했습니다.",
       en: "Turning is Korea's #1 screen time management app, available on both iOS and Android. I primarily handled Android development and created core logic that implements functionality equivalent to iOS's Screen Time API natively on Android. I also contributed to backend server development."
     },
-    tech: ["Kotlin", "Realm", "Accessibility Service", "Retrofit", "Nest.js", "PostgreSQL"],
+    tech: {
+      server: ["Nest.js", "Mongo DB -> PostgreSQL"],
+      client: ["Kotlin", "Android Native", "Realm", "Accessibility Service"],
+      infra: ["AWS", "K8S", "GitOps"]
+    },
     features: {
       ko: [
         "커스텀 스크린타임 추적 시스템",

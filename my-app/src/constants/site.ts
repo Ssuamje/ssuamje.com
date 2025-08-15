@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
 } as const;
 
 export const TECH_STACK = [
-  "React", "Next.js", "TypeScript", 
+  "Kotlin", "Spring", "TypeScript", 
   "Tailwind CSS", "Node.js", "Prisma"
 ] as const;
 
@@ -28,9 +28,9 @@ export const SOCIAL_LINKS = [
     url: "https://linkedin.com",
     icon: "linkedin"
   },
-  {
-    name: "Instagram",
-    url: "https://instagram.com",
-    icon: "instagram"
-  }
+  // {
+  //   name: "Instagram",
+  //   url: "https://instagram.com",
+  //   icon: "instagram"
+  // }
 ] as const;
