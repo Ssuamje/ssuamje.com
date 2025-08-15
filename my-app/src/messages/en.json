@@ -1,0 +1,39 @@
+{
+  "project": {
+    "viewDetails": "View Details",
+    "clickForDetails": "Click to view project details",
+    "ongoing": "Ongoing"
+  },
+  "language": {
+    "korean": "한국어",
+    "english": "English"
+  },
+  "home": {
+    "title": "Sanan — communicates openly and often",
+    "description": "I enjoy discussing challenges and resources, and working together to tackle the most important problems first.",
+    "aboutMe": "About Me",
+    "aboutDescription1": "I'm passionate about tackling the technical challenges that arise in problem-solving. As a problem solver, I collaborate to define issues across the service and user experience, and I don't hesitate to roll up my sleeves—whatever the role or tool—to resolve them.",
+    "aboutDescription2": "I currently serve as a developer and tech lead at HUSTLERS Corp.",
+    "projects": "Projects",
+    "techStack": "Tech Stack",
+    "languages": "Main Languages",
+    "platforms": "Platforms",
+    "infra": "Infrastructure",
+    "awards": "External Activities",
+    "news": "News",
+    "project": "Project"
+  },
+  "projectDetail": {
+    "backToHome": "Back to Home",
+    "projectInfo": "Project Information",
+    "github": "GitHub",
+    "liveDemo": "App Store",
+    "playStore": "Play Store",
+    "techStack": "Tech Stack",
+    "server": "Server",
+    "client": "Client",
+    "infra": "Infrastructure", 
+    "keyFeatures": "Key Features",
+    "ongoing": "Ongoing"
+  }
+}

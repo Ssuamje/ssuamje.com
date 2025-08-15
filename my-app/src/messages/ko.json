@@ -1,0 +1,39 @@
+{
+  "project": {
+    "viewDetails": "자세히 보기",
+    "clickForDetails": "클릭하여 프로젝트 상세 정보 확인",
+    "ongoing": "진행중"
+  },
+  "language": {
+    "korean": "한국어",
+    "english": "English"
+  },
+  "home": {
+    "title": "끊임없이 소통하는 개발자 Sanan입니다",
+    "description": "문제들과 리소스를 함께 논의하고, 중요한 문제부터 함께 도전하는 것을 좋아합니다.",
+    "aboutMe": "About Me",
+    "aboutDescription1": "문제 해결에서 마주하는 여러 어려움들을 기술적으로 해결하는 것에 관심이 많습니다. Problem Solver로서 서비스와 사용자들의 문제점을 함께 정의하고, 해결하기 위해 무엇이든 가리지 않고 해내는 것을 좋아합니다.",
+    "aboutDescription2": "현재는 주식회사 허슬러즈에서 개발자이자 테크 리드로서 일하고 있습니다.",
+    "projects": "Projects",
+    "techStack": "Tech Stack",
+    "languages": "주 사용 언어",
+    "platforms": "플랫폼",
+    "infra": "인프라",
+    "awards": "대외활동",
+    "news": "뉴스",
+    "project": "프로젝트"
+  },
+  "projectDetail": {
+    "backToHome": "홈으로 돌아가기",
+    "projectInfo": "프로젝트 정보",
+    "github": "GitHub",
+    "liveDemo": "App Store",
+    "playStore": "Play Store",
+    "techStack": "사용 기술",
+    "server": "서버",
+    "client": "클라이언트", 
+    "infra": "인프라",
+    "keyFeatures": "주요 기능",
+    "ongoing": "진행중"
+  }
+}
