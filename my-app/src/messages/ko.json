@@ -11,10 +11,13 @@
     "title": "끊임없이 소통하는 개발자 안상제입니다",
     "description": "문제들과 리소스를 함께 논의하고, 중요한 문제부터 함께 도전하는 것을 좋아합니다.",
     "aboutMe": "About Me",
-    "aboutDescription1": "React, Next.js, TypeScript를 주로 사용하여 현대적이고 반응형 웹 애플리케이션을 개발하고 있습니다. 깔끔한 코드와 직관적인 사용자 인터페이스를 만드는 것에 열정을 가지고 있으며, 새로운 기술을 배우고 적용하는 것을 즐깁니다.",
-    "aboutDescription2": "현재는 프론트엔드 개발에 집중하고 있지만, 백엔드 기술에도 관심이 많아 풀스택 개발자로 성장하고자 노력하고 있습니다. 사용자 중심의 디자인과 최적화된 성능을 추구하며, 지속적으로 개선하는 개발 문화를 만들어가고 있습니다.",
+    "aboutDescription1": "문제 해결에서 마주하는 여러 어려움들을 기술적으로 해결하는 것에 관심이 많습니다. Problem Solver로서 서비스와 사용자들의 문제점을 함께 정의하고, 해결하기 위해 무엇이든 가리지 않고 해내는 것을 좋아합니다.",
+    "aboutDescription2": "현재는 주식회사 허슬러즈에서 개발자이자 테크 리드로서 일하고 있습니다.",
     "projects": "Projects",
-    "techStack": "Tech Stack"
+    "techStack": "Tech Stack",
+    "languages": "주 사용 언어",
+    "platforms": "플랫폼",
+    "infra": "인프라"
   },
   "projectDetail": {
     "backToHome": "홈으로 돌아가기",

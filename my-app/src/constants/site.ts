@@ -12,10 +12,11 @@ export const SITE_CONFIG = {
   instagram: "https://instagram.com/ssuamje"
 } as const;
 
-export const TECH_STACK = [
-  "Kotlin", "Spring", "TypeScript", 
-  "Tailwind CSS", "Node.js", "Prisma"
-] as const;
+export const TECH_STACK = {
+  languages: ["Kotlin", "TypeScript", "Java"],
+  platforms: ["Server (Spring Boot, Nest.js, Express)", "Android Native (Kotlin)", "Back-Office (Next.js)"],
+  infra: ["Cloud Resources", "Containers", "CI-CD", "Monitoring"]
+} as const;
 
 export const SOCIAL_LINKS = [
   {

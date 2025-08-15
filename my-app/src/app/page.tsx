@@ -48,12 +48,42 @@ export default function Home() {
           {/* 기술 스택 */}
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-50">{t('techStack')}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {TECH_STACK.map((tech) => (
-                <div key={tech} className="px-4 py-2 bg-gray-600 rounded-lg text-center text-sm font-medium text-gray-50">
-                  {tech}
+            <div className="space-y-4">
+              {/* Languages */}
+              <div>
+                <h3 className="text-sm font-medium text-gray-400 mb-2">{t('languages')}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {TECH_STACK.languages.map((tech) => (
+                    <div key={tech} className="px-3 py-2 bg-blue-700 rounded-lg text-sm font-medium text-white">
+                      {tech}
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+              
+              {/* Platforms */}
+              <div>
+                <h3 className="text-sm font-medium text-gray-400 mb-2">{t('platforms')}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {TECH_STACK.platforms.map((tech) => (
+                    <div key={tech} className="px-3 py-2 bg-green-700 rounded-lg text-sm font-medium text-white">
+                      {tech}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Infrastructure */}
+              <div>
+                <h3 className="text-sm font-medium text-gray-400 mb-2">{t('infra')}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {TECH_STACK.infra.map((tech) => (
+                    <div key={tech} className="px-3 py-2 bg-purple-700 rounded-lg text-sm font-medium text-white">
+                      {tech}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
