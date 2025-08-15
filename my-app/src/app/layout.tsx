@@ -19,13 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem={true}
-        storageKey="theme"
-        disableTransitionOnChange={true}
-      >
+      <ThemeProvider>
         <body className={inter.className}>
           <LanguageProvider>
             {children}

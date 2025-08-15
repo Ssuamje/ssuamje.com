@@ -13,6 +13,7 @@ export default function ProjectCarousel() {
   const animationRef = useRef<number>();
   const scrollPositionRef = useRef(0);
   const isUserScrollingRef = useRef(false);
+  const userScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // 다국어 지원
   const { locale } = useLanguage();
@@ -47,8 +48,10 @@ export default function ProjectCarousel() {
     }
     
     // 사용자 스크롤 후 자동 스크롤 재시작을 위한 타이머
-    clearTimeout(window.userScrollTimeout);
-    window.userScrollTimeout = setTimeout(() => {
+    if (userScrollTimeoutRef.current) {
+      clearTimeout(userScrollTimeoutRef.current);
+    }
+    userScrollTimeoutRef.current = setTimeout(() => {
       isUserScrollingRef.current = false;
       if (!isHovered) {
         startAutoScrollRef.current();
