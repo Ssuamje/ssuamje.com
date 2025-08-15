@@ -1,6 +1,7 @@
 "use client";
 
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
