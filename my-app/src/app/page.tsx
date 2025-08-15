@@ -1,6 +1,8 @@
 import Header from "@/components/header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Linkedin, Instagram } from "lucide-react";
+import ProjectCarousel from "@/components/main/ProjectCarousel";
+import { SITE_CONFIG, TECH_STACK, SOCIAL_LINKS } from "@/constants/site";
 
 export default function Home() {
   return (
@@ -11,10 +13,10 @@ export default function Home() {
       <Card className="w-full max-w-4xl mx-auto rounded-2xl border-0 shadow-2xl bg-black">
         <CardHeader className="text-center pb-6">
           <CardTitle className="text-3xl font-bold text-gray-50 mb-2">
-            안녕하세요! 👋
+            {SITE_CONFIG.title}
           </CardTitle>
           <CardDescription className="text-xl text-gray-50">
-            프론트엔드 개발자로서 사용자 경험을 중시하는 웹 애플리케이션을 만드는 것을 좋아합니다
+            {SITE_CONFIG.description}
           </CardDescription>
         </CardHeader>
         
@@ -37,14 +39,17 @@ export default function Home() {
             </div>
           </div>
 
+          {/* 프로젝트 섹션 */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold text-gray-50">Projects</h2>
+            <ProjectCarousel />
+          </div>
+
           {/* 기술 스택 */}
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold text-gray-50">Tech Stack</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {[
-                "React", "Next.js", "TypeScript", 
-                "Tailwind CSS", "Node.js", "Prisma"
-              ].map((tech) => (
+              {TECH_STACK.map((tech) => (
                 <div key={tech} className="px-4 py-2 bg-gray-600 rounded-lg text-center text-sm font-medium text-gray-50">
                   {tech}
                 </div>
@@ -54,32 +59,23 @@ export default function Home() {
 
           {/* 소셜 미디어 링크 */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-semibold text-gray-50 text-center">Connect With Me</h2>
             <div className="flex justify-center space-x-6">
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-gray-600 hover:bg-gray-500 rounded-full transition-colors duration-200 group"
-              >
-                <Github className="w-6 h-6 text-gray-50 group-hover:text-white transition-colors duration-200" />
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-gray-600 hover:bg-gray-500 rounded-full transition-colors duration-200 group"
-              >
-                <Linkedin className="w-6 h-6 text-gray-50 group-hover:text-white transition-colors duration-200" />
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-gray-600 hover:bg-gray-500 rounded-full transition-colors duration-200 group"
-              >
-                <Instagram className="w-6 h-6 text-gray-50 group-hover:text-white transition-colors duration-200" />
-              </a>
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = social.icon === "github" ? Github : 
+                           social.icon === "linkedin" ? Linkedin : Instagram;
+                
+                return (
+                  <a 
+                    key={social.name}
+                    href={social.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-3 bg-gray-600 hover:bg-gray-500 rounded-full transition-colors duration-200 group"
+                  >
+                    <Icon className="w-6 h-6 text-gray-50 group-hover:text-white transition-colors duration-200" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </CardContent>

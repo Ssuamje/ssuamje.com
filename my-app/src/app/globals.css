@@ -79,3 +79,37 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* 스크롤바 숨기기 */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* 캐러셀 스크롤 스타일 */
+.carousel-scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.carousel-scrollable::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.carousel-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.carousel-scrollable::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.carousel-scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.8);
+}
