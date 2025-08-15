@@ -8,11 +8,11 @@
     "english": "English"
   },
   "home": {
-    "title": "Developer Sangje Ahn who communicates constantly",
-    "description": "I enjoy discussing problems and resources together, and tackling important issues collaboratively.",
+    "title": "Sanan — communicates openly and often",
+    "description": "I enjoy discussing challenges and resources, and working together to tackle the most important problems first.",
     "aboutMe": "About Me",
-    "aboutDescription1": "I develop modern and responsive web applications primarily using React, Next.js, and TypeScript. I have a passion for creating clean code and intuitive user interfaces, and I enjoy learning and applying new technologies.",
-    "aboutDescription2": "While currently focused on frontend development, I have a strong interest in backend technologies and am striving to grow as a full-stack developer. I pursue user-centric design and optimized performance, and am building a culture of continuous improvement in development.",
+    "aboutDescription1": "I'm passionate about tackling the technical challenges that arise in problem-solving. As a problem solver, I collaborate to define issues across the service and user experience, and I don't hesitate to roll up my sleeves—whatever the role or tool—to resolve them.",
+    "aboutDescription2": "I currently serve as a developer and tech lead at HUSTLERS Corp.",
     "projects": "Projects",
     "techStack": "Tech Stack",
     "languages": "Main Languages",
